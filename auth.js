@@ -69,8 +69,24 @@ const verifyToken = (req, res, next) => {
   }
 };
 
+const verifyPayload = (req, res, next) => {
+  try {
+    const authorizationPayload = req.payload.sub;
+    const id = parseInt(req.params.id);
+
+    if (authorizationPayload != id) {
+      throw new Error("Authorization payload is missing");
+    }
+    next();
+  } catch (err) {
+    console.error(err);
+    res.sendStatus(401);
+  }
+}
+
 module.exports = {
   hashPassword,
   verifyPassword,
   verifyToken,
+  verifyPayload,
 };
