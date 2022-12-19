@@ -57,7 +57,7 @@ app.post(
 
 // then the routes to protect
 
-// app.use(verifyToken); // authentication wall : verifyToken is activated for each route after this line
+app.use(verifyToken); // authentication wall : verifyToken is activated for each route after this line
 
 app.post("/api/movies", movieHandlers.postMovie);
 app.put("/api/movies/:id", movieHandlers.updateMovie);
