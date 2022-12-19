@@ -28,7 +28,7 @@ const welcome = (req, res) => {
   res.send("Welcome to my favourite movie list");
 };
 
-app.get("/", welcome);
+app.get("/", welcome); 
 
 app.get("/api/session-in", (req,res) => {
   req.session.song = "Be bop a lula";
